@@ -1,0 +1,15 @@
+"Actúa como un Ingeniero de Plataforma y Seguridad. Mi infraestructura es GitLab Self-Hosted (Community Edition) y despliego en servidores Ubuntu 24.04 aislados.
+
+Necesito configurar un pipeline de CI/CD para una aplicación de .NET 10 y Blazor bajo las siguientes condiciones estrictas:
+
+Cero intervención del Dev: El desarrollador no debe tocar configuraciones del SO ni parámetros del Dockerfile. El proceso debe ser agnóstico al nombre del proyecto.
+
+Dockerfile Blindado: Debe usar una imagen base de .NET 10, ejecución con usuario no-root (UID/GID 1000) y un ENTRYPOINT dinámico que no dependa del nombre del archivo .csproj.
+
+Arquitectura de Runner: Explícame la configuración del GitLab Runner (Docker Executor) en un servidor dedicado y cómo evitar que el build afecte al core de GitLab.
+
+Despliegue Seguro: Detalla el paso de Deploy vía SSH (usando llaves SSH, no contraseñas) para que el Runner orqueste el docker pull y docker run en el servidor de destino de forma atómica.
+
+Clean Up: Incluye la limpieza de imágenes antiguas para no saturar el disco de los servidores.
+
+Entrégame el código del .gitlab-ci.yml, el Dockerfile optimizado y los comandos de consola para configurar las llaves SSH entre el Runner y el Servidor de Destino."
